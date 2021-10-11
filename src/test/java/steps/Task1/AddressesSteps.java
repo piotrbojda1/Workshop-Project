@@ -102,9 +102,8 @@ public class AddressesSteps {
             assertEquals("Address successfully added!",addressConfirmation.getText());
         }
     @And("^Close browser$")
-    public void closeBrowser() throws IOException {
+    public void closeBrowser() {
         driver.quit();
-        Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
     }
 }
 
