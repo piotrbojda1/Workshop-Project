@@ -61,6 +61,7 @@ public class AddressesSteps {
     @And ("^Enter address(.*)$")
             public void enterAddress(String address) {
         WebElement enterAddressFormField = driver.findElement(By.name("address1"));
+        enterAddressFormField.clear();
         enterAddressFormField.sendKeys(address);
     }
     @And ("^Enter city(.*)$")
