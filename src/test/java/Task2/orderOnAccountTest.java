@@ -30,29 +30,39 @@ public class orderOnAccountTest {
     public void hummingbirdPrintedSweaterOrder() throws IOException {
         MainPage mainPage = new MainPage(driver);
         mainPage.signInToLogIn();
+
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginAs();
+
         AccountPage accountPage = new AccountPage(driver);
         accountPage.clickSearchOurCatalog();
+
         ProductsPage productsPage = new ProductsPage(driver);
         productsPage.clickOnHummingbirdPrintedSweater();
+
         ProductPage productPage = new ProductPage(driver);
         productPage.chooseSize();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("container")));
         productPage.addQuantityAndAddToCart(5);
+
         PopupPage popupPage = new PopupPage(driver);
         popupPage.proceedToCheckoutClickField();
+
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
         shoppingCartPage.proceedToChechkoutOnShoppingCart();
+
         AddressesOrderPage addressesOrderPage = new AddressesOrderPage(driver);
         addressesOrderPage.continueButtonclick();
+
         ShippingMethodPage shippingMethodPage = new ShippingMethodPage(driver);
         shippingMethodPage.choosePrestaShopAndConfirmDeliveryByContinueButton();
+
         PaymentPage paymentPage = new PaymentPage(driver);
         paymentPage.payByCheckRadioFieldSelect();
         paymentPage.selectCheckbox();
         paymentPage.orderWithAnObligationToPayFieldButton();
+
         OrderConfirmationPage orderConfirmationPage = new OrderConfirmationPage(driver);
         orderConfirmationPage.orderSnapshot();
         assertEquals("An email has been sent to your mail address piotr@test.com.",orderConfirmationPage.orderConfirmationText());
